@@ -16,7 +16,11 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/def-runner/background.atlas\"\ndefault_animation: \"ring_planet\"\n"
+  data: "tile_set: \"/def-runner/background.atlas\"\n"
+  "default_animation: \"ring_planet\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
   position {
     x: 440.72092
     y: 905.91815
@@ -32,7 +36,11 @@ embedded_components {
 embedded_components {
   id: "sprite1"
   type: "sprite"
-  data: "tile_set: \"/def-runner/background.atlas\"\ndefault_animation: \"earthlike_planet\"\n"
+  data: "tile_set: \"/def-runner/background.atlas\"\n"
+  "default_animation: \"earthlike_planet\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
   position {
     x: 843.7908
     y: 64.72669
@@ -48,7 +56,11 @@ embedded_components {
 embedded_components {
   id: "sprite3"
   type: "sprite"
-  data: "tile_set: \"/def-runner/background.atlas\"\ndefault_animation: \"ice_planet\"\n"
+  data: "tile_set: \"/def-runner/background.atlas\"\n"
+  "default_animation: \"ice_planet\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
   position {
     x: 1531.2341
     y: 612.65845
