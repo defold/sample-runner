@@ -23,7 +23,8 @@ local function play_animation(self, anim)
 	-- only play animations which are not already playing
 	if self.anim ~= anim then
 		-- tell the spine model to play the animation
-		spine.play("#spinemodel", anim, go.PLAYBACK_LOOP_FORWARD, 0.15)
+		local anim_props = { blend_duration = 0.15 }
+		spine.play_anim("#spinemodel", anim, go.PLAYBACK_LOOP_FORWARD, anim_props)
 		-- remember which animation is playing
 		self.anim = anim
 	end
@@ -32,12 +33,12 @@ end
 local function update_animation(self)
 	-- make sure the right animation is playing
 	if self.ground_contact then
-		play_animation(self, hash("run_right"))
+		play_animation(self, hash("run"))
 	else
 		if self.velocity.y > 0 then
-			play_animation(self, hash("jump_right"))
+			play_animation(self, hash("jump"))
 		else
-			play_animation(self, hash("fall_right"))
+			play_animation(self, hash("jump"))
 		end
 	end
 end
@@ -98,7 +99,7 @@ function on_message(self, message_id, message, sender)
 		if message.group == hash("danger") then
 			-- Die and restart
 			particlefx.play("#deathfx")
-			play_animation(self, hash("die_right"))
+			play_animation(self, hash("death"))
 			msg.post("#collisionobject", "disable")
 			msg.post("hud", "set_lives", { lives = self.lives })
 			go.animate(".", "euler.z", go.PLAYBACK_ONCE_FORWARD, 160, go.EASING_LINEAR, 0.7)

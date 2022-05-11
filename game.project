@@ -1,6 +1,6 @@
 [project]
 title = Runner
-dependencies#0 = https://github.com/defold/extension-spine/archive/refs/tags/1.0.5.zip
+dependencies#0 = https://github.com/defold/extension-spine/archive/refs/tags/2.0.9.zip
 
 [bootstrap]
 main_collection = /main/main.collectionc
@@ -14,7 +14,6 @@ height = 720
 
 [physics]
 scale = 0.02
-debug = 0
 
 [graphics]
 default_texture_min_filter = linear
