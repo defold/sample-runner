@@ -5,8 +5,8 @@ end
 
 function final(self)
 	for i,p in ipairs(self.coins) do
-	    go.delete(p)
-    end
+		go.delete(p)
+	end
 end
 
 function update(self, dt)
@@ -23,10 +23,10 @@ function create_coins(self, params)
 	local pos = go.get_position()
 	local x = pos.x - params.coins * (spacing*0.5) - 24
 	for i = 1, params.coins do
-	    local coin = factory.create("#coin_factory", vmath.vector3(x + i * spacing , pos.y + 64, 1))
-	    msg.post(coin, "set_parent", { parent_id = go.get_id() })
-	    msg.post(coin, "start_animation", { delay = i/10 })
-	    table.insert(self.coins, coin)
+		local coin = factory.create("#coin_factory", vmath.vector3(x + i * spacing , pos.y + 64, 1))
+		msg.post(coin, "set_parent", { parent_id = go.get_id() })
+		msg.post(coin, "start_animation", { delay = i/10 })
+		table.insert(self.coins, coin)
 	end
 end
 

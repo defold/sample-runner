@@ -35,11 +35,7 @@ local function update_animation(self)
 	if self.ground_contact then
 		play_animation(self, hash("run"))
 	else
-		if self.velocity.y > 0 then
-			play_animation(self, hash("jump"))
-		else
-			play_animation(self, hash("jump"))
-		end
+		play_animation(self, hash("jump"))
 	end
 end
 
@@ -106,8 +102,8 @@ function on_message(self, message_id, message, sender)
 			go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, go.get_position().y - 200, go.EASING_INSINE, 0.5, 0.2,
 				function()
 					if self.lives > 1 then  
-  				    	msg.post("controller#script", "reset")
-  		    		end
+						msg.post("controller#script", "reset")
+					end
 					self.lives = self.lives - 1
 					if self.lives == 0 then
 						msg.post("hud", "show_game_over")
