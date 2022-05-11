@@ -1,5 +1,5 @@
 function init(self)
-	self.speed = 9		-- Default speed
+	self.speed = 540		-- Default speed in pixels/s
 	self.coins = {}
 end
 
@@ -14,7 +14,7 @@ function update(self, dt)
 	if pos.x < -500 then
 		msg.post("/level/controller#script", "delete_spawn", { id = go.get_id() })
 	end
-	pos.x = pos.x - self.speed
+	pos.x = pos.x - self.speed * dt
 	go.set_position(pos, p)
 end
 

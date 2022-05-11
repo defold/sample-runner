@@ -1,7 +1,7 @@
 local pieces = { "ground0", "ground1", "ground2", "ground3", "ground4", "ground5", "ground6" }
 
 function init(self)
-	self.speed = 6
+	self.speed = 360 -- speed in pixels/s
 end
 
 function update(self, dt)
@@ -10,7 +10,7 @@ function update(self, dt)
 		if pos.x <= -228 then
 			pos.x = 1368 + (pos.x + 228)
 		end
-		pos.x = pos.x - self.speed
+		pos.x = pos.x - self.speed * dt
 		go.set_position(pos, p)
 	end
 end
