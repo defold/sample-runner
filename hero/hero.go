@@ -103,6 +103,7 @@ embedded_components {
   "skin: \"\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   "material: \"/defold-spine/assets/spine.material\"\n"
+  "create_go_bones: false\n"
   ""
   position {
     x: 0.0
@@ -114,5 +115,10 @@ embedded_components {
     y: 0.0
     z: 0.0
     w: 1.0
+  }
+  scale {
+    x: 0.15
+    y: 0.15
+    z: 0.15
   }
 }
