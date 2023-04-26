@@ -116,9 +116,4 @@ embedded_components {
     z: 0.0
     w: 1.0
   }
-  scale {
-    x: 0.15
-    y: 0.15
-    z: 0.15
-  }
 }

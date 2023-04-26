@@ -10,7 +10,7 @@
 	"audio": ""
 },
 "bones": [
-	{ "name": "root", "rotation": 0.05 },
+	{ "name": "root", "rotation": 0.05, "scaleX": 0.15, "scaleY": 0.15 },
 	{ "name": "hip", "parent": "root", "y": 247.27 },
 	{ "name": "crosshair", "parent": "root", "x": 302.83, "y": 569.45, "color": "ff3f00ff" },
 	{
