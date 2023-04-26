@@ -11,9 +11,12 @@ game_binding = /input/game.input_bindingc
 [display]
 width = 1280
 height = 720
+vsync = 0
+update_frequency = 60
 
 [physics]
 scale = 0.02
+use_fixed_timestep = 1
 
 [graphics]
 default_texture_min_filter = linear
