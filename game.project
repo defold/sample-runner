@@ -1,6 +1,6 @@
 [project]
 title = Runner
-dependencies#0 = https://github.com/defold/extension-spine/archive/refs/tags/3.6.2.zip
+dependencies#0 = https://github.com/defold/extension-spine/archive/refs/tags/3.6.5.zip
 
 [bootstrap]
 main_collection = /main/main.collectionc

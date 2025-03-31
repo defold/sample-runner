@@ -7,34 +7,14 @@ textures {
   name: "level"
   texture: "/def-runner/level.atlas"
 }
-background_color {
-  w: 1.0
-}
 nodes {
   position {
     x: 192.0
     y: 640.0
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   size {
     x: 200.0
     y: 100.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   type: TYPE_TEXT
   text: "0"
@@ -43,14 +23,10 @@ nodes {
   xanchor: XANCHOR_LEFT
   yanchor: YANCHOR_TOP
   pivot: PIVOT_W
-  outline {
-    w: 1.0
-  }
   shadow {
     x: 1.0
     y: 1.0
     z: 1.0
-    w: 1.0
   }
   inherit_alpha: true
   outline_alpha: 0.0
@@ -60,27 +36,10 @@ nodes {
   position {
     x: 170.0
     y: 640.0
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   size {
     x: 200.0
     y: 100.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   type: TYPE_TEXT
   text: "SCORE"
@@ -89,14 +48,10 @@ nodes {
   xanchor: XANCHOR_LEFT
   yanchor: YANCHOR_TOP
   pivot: PIVOT_E
-  outline {
-    w: 1.0
-  }
   shadow {
     x: 1.0
     y: 1.0
     z: 1.0
-    w: 1.0
   }
   inherit_alpha: true
   outline_alpha: 0.0
@@ -106,40 +61,23 @@ nodes {
   position {
     x: 640.0
     y: 360.0
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
   }
   scale {
     x: 2.0
     y: 2.0
-    z: 1.0
-    w: 1.0
   }
   size {
     x: 200.0
     y: 100.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   type: TYPE_TEXT
   text: "Game Over"
   font: "score"
   id: "game_over"
-  outline {
-    w: 1.0
-  }
   shadow {
     x: 1.0
     y: 1.0
     z: 1.0
-    w: 1.0
   }
   inherit_alpha: true
   alpha: 0.0
@@ -150,28 +88,12 @@ nodes {
   position {
     x: 1180.0
     y: 640.0
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   size {
     x: 48.0
     y: 48.0
-    w: 1.0
   }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
+  type: TYPE_BOX
   texture: "level/heart"
   id: "life1"
   xanchor: XANCHOR_RIGHT
@@ -181,28 +103,12 @@ nodes {
 nodes {
   position {
     x: -52.0
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   size {
     x: 48.0
     y: 48.0
-    w: 1.0
   }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
+  type: TYPE_BOX
   texture: "level/heart"
   id: "life2"
   parent: "life1"
@@ -211,28 +117,12 @@ nodes {
 nodes {
   position {
     x: -104.0
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   size {
     x: 48.0
     y: 48.0
-    w: 1.0
   }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
+  type: TYPE_BOX
   texture: "level/heart"
   id: "life3"
   parent: "life1"
@@ -241,31 +131,16 @@ nodes {
 nodes {
   position {
     x: -156.0
-    w: 1.0
-  }
-  rotation {
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
   }
   size {
     x: 48.0
     y: 48.0
-    w: 1.0
   }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
+  type: TYPE_BOX
   texture: "level/heart"
   id: "life4"
   parent: "life1"
   inherit_alpha: true
 }
+material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
