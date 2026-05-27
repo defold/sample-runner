@@ -3,6 +3,13 @@ local gravity = -20
 
 -- take-off speed when jumping in pixel units/s
 local jump_takeoff_speed = 900
+local jump_buffer_time = 0.12
+
+local input_jump = hash("jump")
+local input_touch = hash("touch")
+local input_left_button = hash("left_button")
+local anim_jump = hash("jump")
+local anim_run = hash("run")
 
 go.property("lives", 4)
 
@@ -12,6 +19,7 @@ function init(self)
 	-- save position
 	self.position = go.get_position()
 	self.lives = go.get("#", "lives")
+	self.jump_buffer = 0
 	msg.post("#", "reset")
 end
 
@@ -33,13 +41,27 @@ end
 local function update_animation(self)
 	-- make sure the right animation is playing
 	if self.ground_contact then
-		play_animation(self, hash("run"))
+		play_animation(self, anim_run)
 	else
-		play_animation(self, hash("jump"))
+		play_animation(self, anim_jump)
 	end
 end
 
-function update(self, dt)
+local function try_jump(self)
+	if self.jump_buffer > 0 and self.ground_contact then
+		self.velocity.y = jump_takeoff_speed
+		self.ground_contact = false
+		self.jump_buffer = 0
+		play_animation(self, anim_jump)
+	end
+end
+
+function fixed_update(self, dt)
+	if self.jump_buffer > 0 then
+		try_jump(self)
+		self.jump_buffer = math.max(0, self.jump_buffer - dt)
+	end
+
 	local gravity = vmath.vector3(0, gravity, 0)
 
 	if not self.ground_contact then
@@ -70,6 +92,7 @@ local function handle_geometry_contact(self, normal, distance)
 	-- (0.7 is roughly equal to 45 degrees deviation from pure vertical direction)
 	if normal.y > 0.7 then
 		self.ground_contact = true
+		try_jump(self)
 	end
 	-- project the velocity onto the normal
 	proj = vmath.dot(self.velocity, normal)
@@ -85,6 +108,7 @@ function on_message(self, message_id, message, sender)
 		self.velocity = vmath.vector3(0, 0, 0)
 		self.correction = vmath.vector3()
 		self.ground_contact = false
+		self.jump_buffer = 0
 		self.anim = nil
 		go.set(".", "euler.z", 0)
 		go.set_position(self.position)
@@ -120,14 +144,12 @@ function on_message(self, message_id, message, sender)
 end
 
 local function jump(self)
-	-- only allow jump from ground
-	if self.ground_contact then
-		-- set take-off speed
-		self.velocity.y = jump_takeoff_speed
-	end
+	self.jump_buffer = jump_buffer_time
+	try_jump(self)
 end
 
 local function abort_jump(self)
+	self.jump_buffer = 0
 	-- cut the jump short if we are still going up
 	if self.velocity.y > 0 then
 		-- scale down the upwards speed
@@ -136,7 +158,7 @@ local function abort_jump(self)
 end
 
 function on_input(self, action_id, action)
-	if action_id == hash("jump") or action_id == hash("touch") then
+	if action_id == input_jump or action_id == input_touch or action_id == input_left_button then
 		if action.pressed then
 			jump(self)
 		elseif action.released then
